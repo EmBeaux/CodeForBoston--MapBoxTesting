@@ -74,8 +74,8 @@ makeLayer(array, number, id, color){
               height: "70vh",
               width: "70vw"
             }}
-          zoom={[2.5]}
-          center={[-90, 40.35]}
+          zoom={[this.props.zoom]}
+          center={this.props.center}
             >
             {layers1}
             {layers2}
