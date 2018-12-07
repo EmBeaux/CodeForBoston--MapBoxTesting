@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../../stylesheets/App.css';
 import Cities from "../../cities.json"
 import IndexPageContainer from "../containers/IndexPageContainer.js"
+import MenuContainer from "../containers/MenuContainer.js"
 
 class App extends Component {
   constructor(props) {
@@ -11,8 +12,20 @@ class App extends Component {
     elevenTwenty: [],
     twentyOneThirty: [],
     thirtyOneFourty: [],
-    fourtyOneHundred: []
+    fourtyOneHundred: [],
+    center: [-90, 40.35],
+    zoom: 2.5
   }
+  this.changeCenterScreen = this.changeCenterScreen.bind(this)
+}
+
+changeCenterScreen(newCenter, zoom){
+  let lat = newCenter.lat
+  let long = newCenter.long
+  this.setState({
+    center: [long, lat],
+    zoom: 11
+   })
 }
 
 componentDidMount(){
@@ -26,6 +39,7 @@ componentDidMount(){
     if(city.rank <= 10){
       newzeroTen.push(
         {
+          city: city.city,
           id: city.rank,
           lat: city.latitude,
           long: city.longitude
@@ -34,6 +48,7 @@ componentDidMount(){
     }else if(city.rank <= 20){
       newelevenTwenty.push(
         {
+          city: city.city,
           id: city.rank,
           lat: city.latitude,
           long: city.longitude
@@ -42,6 +57,7 @@ componentDidMount(){
     }else if(city.rank <= 30){
       newtwentyOneThirty.push(
         {
+          city: city.city,
           id: city.rank,
           lat: city.latitude,
           long: city.longitude
@@ -50,6 +66,7 @@ componentDidMount(){
     }else if(city.rank <= 40){
       newthirtyOneFourty.push(
         {
+          city: city.city,
           id: city.rank,
           lat: city.latitude,
           long: city.longitude
@@ -58,6 +75,7 @@ componentDidMount(){
     }else{
       newfourtyOneHundred.push(
         {
+          city: city.city,
           id: city.rank,
           lat: city.latitude,
           long: city.longitude
@@ -75,7 +93,6 @@ componentDidMount(){
 }
 
   render() {
-    console.log(this.state.fourtyOneHundred)
     return(
       <div className="pageWrapper">
         <IndexPageContainer
@@ -84,6 +101,16 @@ componentDidMount(){
           twentyOneThirty = {this.state.twentyOneThirty}
           thirtyOneFourty = {this.state.thirtyOneFourty}
           fourtyOneHundred = {this.state.fourtyOneHundred}
+          center = {this.state.center}
+          zoom = {this.state.zoom}
+        />
+        <MenuContainer
+          zeroTen = {{"Top Ten!": this.state.zeroTen}}
+          elevenTwenty = {{"Eleven Through Twenty": this.state.elevenTwenty}}
+          twentyOneThirty = {{"Twenty-One Through Thirty": this.state.twentyOneThirty}}
+          thirtyOneFourty = {{"Thirty-One Through Fourty": this.state.thirtyOneFourty}}
+          fourtyOneHundred = {{"The Rest!": this.state.fourtyOneHundred}}
+          changeCenterScreen = {this.changeCenterScreen}
         />
       </div>
     )
