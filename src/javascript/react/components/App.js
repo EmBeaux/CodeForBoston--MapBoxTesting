@@ -39,6 +39,8 @@ componentDidMount(){
     if(city.rank <= 10){
       newzeroTen.push(
         {
+          radius: 15,
+          hexCode: "#ff6d48",
           city: city.city,
           id: city.rank,
           lat: city.latitude,
@@ -48,6 +50,8 @@ componentDidMount(){
     }else if(city.rank <= 20){
       newelevenTwenty.push(
         {
+          radius: 10,
+          hexCode: "#70ff28",
           city: city.city,
           id: city.rank,
           lat: city.latitude,
@@ -57,6 +61,8 @@ componentDidMount(){
     }else if(city.rank <= 30){
       newtwentyOneThirty.push(
         {
+          radius: 8,
+          hexCode: "#5044ff",
           city: city.city,
           id: city.rank,
           lat: city.latitude,
@@ -66,6 +72,8 @@ componentDidMount(){
     }else if(city.rank <= 40){
       newthirtyOneFourty.push(
         {
+          radius: 6,
+          hexCode: "#f156ff",
           city: city.city,
           id: city.rank,
           lat: city.latitude,
@@ -75,6 +83,8 @@ componentDidMount(){
     }else{
       newfourtyOneHundred.push(
         {
+          radius: 6,
+          hexCode: "#030203",
           city: city.city,
           id: city.rank,
           lat: city.latitude,
