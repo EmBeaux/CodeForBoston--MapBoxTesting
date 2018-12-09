@@ -37,7 +37,7 @@ renderMenuItems(array){
     if(this.props.zeroTen["Top Ten!"].length > 0){
       let allCities = [this.props.zeroTen["Top Ten!"], this.props.elevenTwenty["Eleven Through Twenty"], this.props.twentyOneThirty["Twenty-One Through Thirty"], this.props.thirtyOneFourty["Thirty-One Through Fourty"], this.props.fourtyOneHundred["The Rest!"]]
       allButtons = allCities.map(cities => {
-        
+        debugger
         return(
           <DropdownButtonComponent
             renderMenuItems = {this.renderMenuItems}
