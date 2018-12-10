@@ -45,11 +45,11 @@ setTimeout(function() {
   this.setState({
     [name]: value
   });
-}.bind(this), 1000)
+}.bind(this), 100)
 
   setTimeout(function() {
     this.establishArray(Cities)
-  }.bind(this), 1000)
+  }.bind(this), 100)
 }
 
 establishArray(array){
