@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Layer, Feature } from "react-mapbox-gl";
 
 const LayerComponent = (props) => {
@@ -12,19 +12,18 @@ const LayerComponent = (props) => {
         <Feature key={id} coordinates={[long, lat]}/>
     )
   })
-  debugger
   return (
     <div key={props.array[0].id}>
-    <Layer
-      type='circle'
-      id={props.array[0].id}
-      paint={{'circle-radius': parseInt(props.array[0].radius),
-              'circle-color': `${props.array[0].hexCode}`,
-              'circle-opacity': 0.8}}
-      layout={{}}
-    >
-      {markers}
-    </Layer>
+      <Layer
+        type='circle'
+        id={props.array[0].id}
+        paint={{'circle-radius': parseInt(props.array[0].radius),
+                'circle-color': `${props.array[0].hexCode}`,
+                'circle-opacity': 0.8}}
+        layout={{}}
+      >
+        {markers}
+      </Layer>
     </div>
   )
 }

@@ -33,19 +33,22 @@ renderMenuItems(array){
 }
   render() {
     let allButtons;
-    let count = 0
-    if(this.props.zeroTen["Top Ten!"].length > 0){
-      let allCities = [this.props.zeroTen["Top Ten!"], this.props.elevenTwenty["Eleven Through Twenty"], this.props.twentyOneThirty["Twenty-One Through Thirty"], this.props.thirtyOneFourty["Thirty-One Through Fourty"], this.props.fourtyOneHundred["The Rest!"]]
+    if(this.props.zeroTen.length > 0 || this.props.elevenTwenty.length > 0 || this.props.twentyOneThirty.length > 0 || this.props.thirtyOneFourty.length > 0 || this.props.fourtyOneHundred.length > 0 ){
+      let allCities = [this.props.zeroTen, this.props.elevenTwenty, this.props.twentyOneThirty, this.props.thirtyOneFourty, this.props.fourtyOneHundred]
       allButtons = allCities.map(cities => {
-        debugger
-        return(
-          <DropdownButtonComponent
+        if(cities.length > 0){
+          return(
+            <div>
+            <DropdownButtonComponent
             renderMenuItems = {this.renderMenuItems}
-            title = "Baddabing"
-            id = {this.getRandomInt(100000)}
+            title = {cities[0].group}
+            id = {cities[0].group}
             cities = {cities}
-          />
-        )
+            key = {cities[0].group}
+            />
+            </div>
+          )
+        }
       })
     }
     return(
