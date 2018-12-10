@@ -16,7 +16,7 @@ componentDidMount(){
   render() {
     let menuItems = this.props.renderMenuItems(this.props.cities)
     return(
-      <div>
+      <div key={this.props.id}>
         <DropdownButton
           bsStyle="default"
           title={this.props.title}

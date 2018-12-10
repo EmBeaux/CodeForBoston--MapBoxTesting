@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../../stylesheets/App.css';
-import ReactMapboxGl, { Layer, Feature, ZoomControl, RotationControl, Popup } from "react-mapbox-gl";
+import ReactMapboxGl, {  ZoomControl, RotationControl } from "react-mapbox-gl";
 import LayerComponent from '../components/LayerComponent.js'
 
 class IndexPageContainer extends Component {
@@ -15,11 +15,13 @@ class IndexPageContainer extends Component {
     const PROPCITIES = [this.props.zeroTen, this.props.elevenTwenty, this.props.twentyOneThirty, this.props.thirtyOneFourty, this.props.fourtyOneHundred]
 
     let mappedCities = PROPCITIES.map(cities => {
-      return(
-        <LayerComponent
-          array={cities}
-        />
-      )
+      if(cities.length > 0){
+        return(
+          <LayerComponent
+            array={cities}
+          />
+        )
+      }
     })
 
     const Map = ReactMapboxGl({
